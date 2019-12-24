@@ -2,14 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="58bc901e-a5db-4145-9df1-993be3f0d7e6" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.eslintrc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.prettierrc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.stylelintrc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/header/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,7 +39,32 @@
     <property name="nodejs_package_manager_path" value="yarn" />
     <property name="prettierjs.PrettierConfiguration.Package" value="$PROJECT_DIR$/node_modules/prettier" />
   </component>
-  <component name="RunManager">
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+    </key>
+  </component>
+  <component name="RunManager" selected="npm.eslint">
+    <configuration name="eslint" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="eslint" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <configuration name="lint" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="lint" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
     <configuration name="start" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
       <package-json value="$PROJECT_DIR$/package.json" />
       <command value="run" />
@@ -55,8 +75,21 @@
       <envs />
       <method v="2" />
     </configuration>
+    <configuration name="stylelint" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="stylelint" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="npm.stylelint" />
+        <item itemvalue="npm.eslint" />
+        <item itemvalue="npm.lint" />
         <item itemvalue="npm.start" />
       </list>
     </recent_temporary>
@@ -77,6 +110,14 @@
     <configuration />
   </component>
   <component name="TaskManager">
+    <task id="LOCAL-00001" summary="Eslint, Prettier, StyleLint">
+      <created>1577192628942</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1577192628943</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -90,22 +131,34 @@
       </map>
     </option>
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Eslint, Prettier, StyleLint" />
+    <option name="LAST_COMMIT_MESSAGE" value="Eslint, Prettier, StyleLint" />
+  </component>
   <component name="WindowStateProjectService">
-    <state width="1405" height="276" key="GridCell.Tab.0.bottom" timestamp="1577192537601">
+    <state x="421" y="37" key="CommitChangelistDialog2" timestamp="1577192628797">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
-    <state width="1405" height="276" key="GridCell.Tab.0.bottom/0.0.1680.1050@0.0.1680.1050" timestamp="1577192537601" />
-    <state width="1405" height="276" key="GridCell.Tab.0.center" timestamp="1577192537600">
+    <state x="421" y="37" key="CommitChangelistDialog2/0.0.1680.1050@0.0.1680.1050" timestamp="1577192628797" />
+    <state width="1405" height="276" key="GridCell.Tab.0.bottom" timestamp="1577193033251">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
-    <state width="1405" height="276" key="GridCell.Tab.0.center/0.0.1680.1050@0.0.1680.1050" timestamp="1577192537600" />
-    <state width="1405" height="276" key="GridCell.Tab.0.left" timestamp="1577192537599">
+    <state width="1405" height="276" key="GridCell.Tab.0.bottom/0.0.1680.1050@0.0.1680.1050" timestamp="1577193033251" />
+    <state width="1405" height="276" key="GridCell.Tab.0.center" timestamp="1577193033249">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
-    <state width="1405" height="276" key="GridCell.Tab.0.left/0.0.1680.1050@0.0.1680.1050" timestamp="1577192537599" />
-    <state width="1405" height="276" key="GridCell.Tab.0.right" timestamp="1577192537601">
+    <state width="1405" height="276" key="GridCell.Tab.0.center/0.0.1680.1050@0.0.1680.1050" timestamp="1577193033249" />
+    <state width="1405" height="276" key="GridCell.Tab.0.left" timestamp="1577193033249">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
-    <state width="1405" height="276" key="GridCell.Tab.0.right/0.0.1680.1050@0.0.1680.1050" timestamp="1577192537601" />
+    <state width="1405" height="276" key="GridCell.Tab.0.left/0.0.1680.1050@0.0.1680.1050" timestamp="1577193033249" />
+    <state width="1405" height="276" key="GridCell.Tab.0.right" timestamp="1577193033250">
+      <screen x="0" y="0" width="1680" height="1050" />
+    </state>
+    <state width="1405" height="276" key="GridCell.Tab.0.right/0.0.1680.1050@0.0.1680.1050" timestamp="1577193033250" />
+    <state x="440" y="261" key="Vcs.Push.Dialog.v2" timestamp="1577192633849">
+      <screen x="0" y="0" width="1680" height="1050" />
+    </state>
+    <state x="440" y="261" key="Vcs.Push.Dialog.v2/0.0.1680.1050@0.0.1680.1050" timestamp="1577192633849" />
   </component>
 </project>
