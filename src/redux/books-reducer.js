@@ -1,11 +1,8 @@
 const SET_BOOKS = 'SET_BOOKS';
-const ADD_BOOK = 'ADD_BOOK';
 
 const initialState = {
-  books: [{
-    id: 0,
-    title: 'Test'
-  }]
+  items: [],
+  isLoading: false
 };
 
 const booksReducer = (state = initialState, action) => {
@@ -13,12 +10,8 @@ const booksReducer = (state = initialState, action) => {
     case SET_BOOKS:
       return {
         ...state,
-        books: [...action.payload]
-      };
-    case ADD_BOOK:
-      return {
-        ...state,
-        books: [...state.books, ...action.payload]
+        items: [...action.payload],
+        isLoading: true
       };
     default:
       return state;
@@ -26,3 +19,8 @@ const booksReducer = (state = initialState, action) => {
 };
 
 export default booksReducer;
+
+export const setBooks = books =>({
+  type: SET_BOOKS,
+  payload: books
+});
