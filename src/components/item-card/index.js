@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card, Image } from 'semantic-ui-react';
+import { Card, Icon, Image } from "semantic-ui-react";
 
 export const ItemCard = ({ title, price, author, image }) => {
   return (
@@ -10,7 +10,7 @@ export const ItemCard = ({ title, price, author, image }) => {
         <Card.Meta>
           <span className="date">{author}</span>
         </Card.Meta>
-        <Card.Description>{price}</Card.Description>
+        <Card.Description>{price}<Icon name="usd"/></Card.Description>
       </Card.Content>
     </Card>
   );

@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { setBooks } from './redux/books-reducer';
 import axios from 'axios';
 import { Header } from './components/header';
-import { Container } from 'semantic-ui-react';
+import { Container, CardGroup } from 'semantic-ui-react';
 import { ItemCard } from './components/item-card';
 
 class App extends React.Component {
@@ -20,16 +20,11 @@ class App extends React.Component {
       <>
         <Container>
           <Header />
-          <ul>
+          <CardGroup itemsPerRow={4}>
             {books.map(book => (
-              <ItemCard
-                price={book.price}
-                author={book.author}
-                image={book.image}
-                title={book.title}
-              />
+              <ItemCard {...book} key={book.id}/>
             ))}
-          </ul>
+          </CardGroup>
         </Container>
       </>
     );
