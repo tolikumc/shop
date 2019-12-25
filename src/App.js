@@ -3,6 +3,7 @@ import './App.scss';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import * as booksActions from './redux/books-reducer';
+import * as filterActions from './redux/filter-reducer';
 import axios from 'axios';
 import { Header } from './components/header';
 import { Container, CardGroup } from 'semantic-ui-react';
@@ -59,7 +60,8 @@ const mapStateToProps = state => {
 };
 
 const mapDispatchToProps = dispatch => ({
-  ...bindActionCreators(booksActions, dispatch)
+  ...bindActionCreators(booksActions, dispatch),
+  ...bindActionCreators(filterActions, dispatch)
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);
