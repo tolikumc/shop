@@ -1,11 +1,13 @@
 import React from 'react';
 import './App.scss';
 import { connect } from 'react-redux';
-import { setBooks } from './redux/books-reducer';
+import { bindActionCreators } from 'redux';
+import * as booksActions from './redux/books-reducer';
 import axios from 'axios';
 import { Header } from './components/header';
 import { Container, CardGroup } from 'semantic-ui-react';
 import { ItemCard } from './components/item-card';
+import { Filter } from './components/filter';
 
 class App extends React.Component {
   componentDidMount() {
@@ -15,14 +17,16 @@ class App extends React.Component {
   }
 
   render() {
-    const { books } = this.props;
+    const { books, filterBy, setFilter } = this.props;
+
     return (
       <>
         <Container>
           <Header />
-          <CardGroup itemsPerRow={4}>
+          <Filter toggleFilter={setFilter} filterBy={filterBy} />
+          <CardGroup itemsPerRow={3}>
             {books.map(book => (
-              <ItemCard {...book} key={book.id}/>
+              <ItemCard {...book} key={book.id} />
             ))}
           </CardGroup>
         </Container>
@@ -33,14 +37,13 @@ class App extends React.Component {
 
 const mapStateToProps = state => {
   return {
-    books: state.books.items
+    books: state.books.items,
+    filterBy: state.books.filterBy
   };
 };
 
-const mapDispatchToProps = dispatch => {
-  return {
-    setBooks: books => dispatch(setBooks(books))
-  };
-};
+const mapDispatchToProps = dispatch => ({
+  ...bindActionCreators(booksActions, dispatch)
+});
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);
