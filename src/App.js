@@ -19,13 +19,24 @@ class App extends React.Component {
   }
 
   render() {
-    const { books, filterBy, setFilter } = this.props;
+    const {
+      books,
+      filterBy,
+      setFilter,
+      searchQuery,
+      setSearchQuery
+    } = this.props;
 
     return (
       <>
         <Container>
           <Header />
-          <Filter toggleFilter={setFilter} filterBy={filterBy} />
+          <Filter
+            toggleFilter={setFilter}
+            filterBy={filterBy}
+            searchQuery={searchQuery}
+            setSearchQuery={setSearchQuery}
+          />
           <CardGroup itemsPerRow={3}>
             {books.map(book => (
               <ItemCard {...book} key={book.id} />
@@ -37,7 +48,15 @@ class App extends React.Component {
   }
 }
 
-const sort = (books, key) => {
+const sort = (books, key, searchKey) => {
+  if (searchKey !== '') {
+    books.filter(
+      i =>
+        i.title.toLowerCase().indexOf(searchKey.toLowerCase()) >= 0 ||
+        i.author.toLowerCase().indexOf(searchKey.toLowerCase()) >= 0
+    );
+  }
+
   switch (key) {
     case 'all':
       return books;
@@ -54,8 +73,13 @@ const sort = (books, key) => {
 
 const mapStateToProps = state => {
   return {
-    books: sort(state.books.items, state.filter.filterBy),
-    filterBy: state.filter.filterBy
+    books: sort(
+      state.books.items,
+      state.filter.filterBy,
+      state.filter.searchQuery
+    ),
+    filterBy: state.filter.filterBy,
+    searchQuery: state.filter.searchQuery
   };
 };
 

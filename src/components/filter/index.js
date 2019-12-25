@@ -1,7 +1,12 @@
 import React from 'react';
-import { Menu } from 'semantic-ui-react';
+import { Menu, Input } from 'semantic-ui-react';
 
-export const Filter = ({ filterBy, toggleFilter }) => {
+export const Filter = ({
+  filterBy,
+  toggleFilter,
+  searchQuery,
+  setSearchQuery
+}) => {
   return (
     <Menu secondary>
       <Menu.Item
@@ -33,6 +38,14 @@ export const Filter = ({ filterBy, toggleFilter }) => {
         onClick={() => toggleFilter('author')}
       >
         Author
+      </Menu.Item>
+      <Menu.Item>
+        <Input
+          placeholder="Enter..."
+          icon="search"
+          value={searchQuery}
+          onChange={e => setSearchQuery(e.target.value)}
+        />
       </Menu.Item>
     </Menu>
   );
