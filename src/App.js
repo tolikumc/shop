@@ -53,8 +53,8 @@ const sort = (books, key) => {
 
 const mapStateToProps = state => {
   return {
-    books: sort(state.books.items, state.books.filterBy),
-    filterBy: state.books.filterBy
+    books: sort(state.books.items, state.filter.filterBy),
+    filterBy: state.filter.filterBy
   };
 };
 

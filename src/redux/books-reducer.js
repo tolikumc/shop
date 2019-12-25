@@ -1,10 +1,8 @@
 const SET_BOOKS = 'SET_BOOKS';
-const SET_FILTER = 'SET_FILTER';
 
 const initialState = {
   items: [],
-  isLoading: false,
-  filterBy: 'all'
+  isLoading: false
 };
 
 const booksReducer = (state = initialState, action) => {
@@ -14,11 +12,6 @@ const booksReducer = (state = initialState, action) => {
         ...state,
         items: [...action.payload],
         isLoading: true
-      };
-    case SET_FILTER:
-      return{
-        ...state,
-        filterBy: action.payload
       };
     default:
       return state;
@@ -30,9 +23,4 @@ export default booksReducer;
 export const setBooks = books =>({
   type: SET_BOOKS,
   payload: books
-});
-
-export const setFilter = filter =>({
-  type: SET_FILTER,
-  payload: filter
 });

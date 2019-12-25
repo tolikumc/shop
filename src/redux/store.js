@@ -3,11 +3,13 @@ import thunkMiddleware from 'redux-thunk';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import booksReducer from "./books-reducer";
 import cartReducer from "./cart-reducer";
+import filterReducer from "./filter-reducer";
 
 
 const reducers = combineReducers({
   books: booksReducer,
-  cart: cartReducer
+  cart: cartReducer,
+  filter: filterReducer
 });
 
 const store = createStore(
