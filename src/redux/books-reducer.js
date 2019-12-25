@@ -16,7 +16,6 @@ const booksReducer = (state = initialState, action) => {
         isLoading: true
       };
     case SET_FILTER:
-      console.log(action.payload);
       return{
         ...state,
         filterBy: action.payload

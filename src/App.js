@@ -8,6 +8,7 @@ import { Header } from './components/header';
 import { Container, CardGroup } from 'semantic-ui-react';
 import { ItemCard } from './components/item-card';
 import { Filter } from './components/filter';
+import orderBy from 'lodash/orderBy';
 
 class App extends React.Component {
   componentDidMount() {
@@ -35,9 +36,24 @@ class App extends React.Component {
   }
 }
 
+const sort = (books, key) => {
+  switch (key) {
+    case 'all':
+      return books;
+    case 'price_low':
+      return orderBy(books, ['price'], 'asc');
+    case 'price_high':
+      return orderBy(books, ['price'], 'desc');
+    case 'author':
+      return orderBy(books, ['author'], 'asc');
+    default:
+      return books;
+  }
+};
+
 const mapStateToProps = state => {
   return {
-    books: state.books.items,
+    books: sort(state.books.items, state.books.filterBy),
     filterBy: state.books.filterBy
   };
 };
