@@ -1,17 +1,18 @@
 import React from 'react';
-import { Card, Icon, Image } from "semantic-ui-react";
+import { Button, Card, Icon, Image } from "semantic-ui-react";
 
-export const ItemCard = ({ title, price, author, image }) => {
+export const ItemCard = ({ addToCart, ...props }) => {
   return (
     <Card>
-      <Image src={image} wrapped ui={false} />
+      <Image src={props.image} wrapped ui={false} />
       <Card.Content>
-        <Card.Header>{title}</Card.Header>
+        <Card.Header>{props.title}</Card.Header>
         <Card.Meta>
-          <span className="date">{author}</span>
+          <span className="date">{props.author}</span>
         </Card.Meta>
-        <Card.Description>{price}<Icon name="usd"/></Card.Description>
+        <Card.Description>{props.price}<Icon name="usd"/></Card.Description>
       </Card.Content>
+      <Button onClick={()=>addToCart(props)}>Add to cart</Button>
     </Card>
   );
 };

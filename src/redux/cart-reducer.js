@@ -11,12 +11,12 @@ const cartReducer = (state = initialState, action) => {
     case ADD_BOOK:
       return {
         ...state,
-        items: [...state.items, ...action.payload]
+        items: [...state.items, action.payload]
       };
     case REMOVE_BOOK:
       return {
         ...state,
-        items: state.items.filter(i=> i !== action.payload.id)
+        items: state.items.filter(i=> i.id !== action.payload)
       };
     default:
       return state;
@@ -24,3 +24,13 @@ const cartReducer = (state = initialState, action) => {
 };
 
 export default cartReducer;
+
+export const addToCart = (item) =>({
+  type: ADD_BOOK,
+  payload: item
+});
+
+export const removeFromCart = (id) =>({
+  type: REMOVE_BOOK,
+  payload: id
+});

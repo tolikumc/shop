@@ -4,12 +4,14 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import * as booksActions from './redux/books-reducer';
 import * as filterActions from './redux/filter-reducer';
+import * as cartActions from './redux/cart-reducer';
 import axios from 'axios';
 import { Header } from './components/header';
 import { Container, CardGroup } from 'semantic-ui-react';
 import { ItemCard } from './components/item-card';
 import { Filter } from './components/filter';
 import orderBy from 'lodash/orderBy';
+import uniqBy from 'lodash/uniqBy';
 
 class App extends React.Component {
   componentDidMount() {
@@ -24,13 +26,23 @@ class App extends React.Component {
       filterBy,
       setFilter,
       searchQuery,
-      setSearchQuery
+      setSearchQuery,
+      totalPrice,
+      countBook,
+      addToCart,
+      itemCart,
+      removeFromCart
     } = this.props;
 
     return (
       <>
         <Container>
-          <Header />
+          <Header
+            totalPrice={totalPrice}
+            countBook={countBook}
+            items={itemCart}
+            removeBook={removeFromCart}
+          />
           <Filter
             toggleFilter={setFilter}
             filterBy={filterBy}
@@ -39,7 +51,7 @@ class App extends React.Component {
           />
           <CardGroup itemsPerRow={3}>
             {books.map(book => (
-              <ItemCard {...book} key={book.id} />
+              <ItemCard {...book} key={book.id} addToCart={addToCart} />
             ))}
           </CardGroup>
         </Container>
@@ -79,13 +91,18 @@ const mapStateToProps = state => {
       state.filter.searchQuery
     ),
     filterBy: state.filter.filterBy,
-    searchQuery: state.filter.searchQuery
+    searchQuery: state.filter.searchQuery,
+    totalPrice: state.cart.items.reduce((acc, book) => acc + book.price, 0),
+    countBook: state.cart.items.length,
+    itemCart: uniqBy(state.cart.items, i => i.id)
+    // addedCounter: state.cart.items.reduce((acc, book) => acc + (book.id === id ? 1: 0), 0)
   };
 };
 
 const mapDispatchToProps = dispatch => ({
   ...bindActionCreators(booksActions, dispatch),
-  ...bindActionCreators(filterActions, dispatch)
+  ...bindActionCreators(filterActions, dispatch),
+  ...bindActionCreators(cartActions, dispatch)
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);
